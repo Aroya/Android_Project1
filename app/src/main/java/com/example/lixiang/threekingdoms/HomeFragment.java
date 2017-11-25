@@ -146,8 +146,10 @@ public class HomeFragment extends Fragment{
                         Intent thisIntent=new Intent(getContext(),editCharacter.class);
                         thisIntent.putExtra("ACTION",EditEvent.EDIT_ACTION);
                         thisIntent.putExtra("listPosition",pos);
-                        characters.get(pos).setInfo(getString(characters.get(pos).getMoreInfoIdId()));
-                        characters.get(pos).setMoreInfoId(CharacterInfo.B501);
+                        if(characters.get(pos).getMoreInfoIdId()!=CharacterInfo.B501){
+                            characters.get(pos).setInfo(getString(characters.get(pos).getMoreInfoIdId()));
+                            characters.get(pos).setMoreInfoId(CharacterInfo.B501);
+                        }
                         thisIntent.putExtra("charactersInfo",characters.get(pos));
                         startActivity(thisIntent);
                         break;
